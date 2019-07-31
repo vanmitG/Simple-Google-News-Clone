@@ -6,7 +6,13 @@ async function getNews() {
   const response = await fetch(url);
   const jsonDataObject = await response.json();
   // console.log(`jsonDataObject: ${jsonDataObject}`);
-  console.log("line-9-jsonDataObject.aritiles[0]:", jsonDataObject.articles[0]);
+  console.log(
+    "line-9-jsonDataObject.aritiles[0]:",
+    jsonDataObject.articles.length
+  );
+  document.getElementById("articlesLoaded").innerHTML = ` ${
+    jsonDataObject.articles.length
+  }`;
   const newsHTML = jsonDataObject.articles.map(el => {
     return renderArticle(el);
   });
@@ -28,12 +34,14 @@ function renderArticle(el) {
           <img class="card-img-top" src="${el.urlToImage}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">${el.title}</h5>
-            <p class="card-text">${moment(el.publishedAt).format(
-              "MMM Do YY"
-            )}</p>
+            <span class="d-flex"><p class="card-text">${moment(
+              el.publishedAt
+            ).format("MMM Do YY")}</p> <p class="card-text ml-3">Source: ${
+    el.source.name
+  }</p></span>
             <p class="card-text">${el.description}</p>
-            <p class="card-text">Source: ${el.source.name}</p>
-            <a href="${el.url}" class="btn btn-primary">More</a>
+           
+            <a href="${el.url}" class="btn btn-info">Read More</a>
           </div>
         </div>
   </div>

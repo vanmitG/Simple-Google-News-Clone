@@ -1,4 +1,4 @@
-# CoderSchool FTW - _ Name of Your Project Here _
+# CoderSchool FTW - _ Simple Google News Clone _
 
 Created with love by: <An-Khuong Huynh>
 
@@ -26,11 +26,11 @@ The following **required** functionalities are completed:
 
 ### The following **optional** features are implemented:
 
-Feel free to experiment with stories here. They are roughly sorted in order of estimated difficulty.
+<!-- Feel free to experiment with stories here. They are roughly sorted in order of estimated difficulty. -->
 
 - [ ] The user can click a link at the bottom of the page to load the next 20 stories. The page should not refresh; the stories should simply be added to the bottom.
 - [ ] The user can see an updated number of stories currently shown.
-- [ ] The user can see how long ago the story was published in a human-friendly format; e.g. "15 minutes ago".
+- [x] The user can see how long ago the story was published in a human-friendly format; e.g. "15 minutes ago".
   <!-- To accomplish this, we recommend you use momentjs. Please load it into your page using cdnjs or jsdelivr (these are called CDNs). -->
 
 ## Rocket Challenge 1: Sources

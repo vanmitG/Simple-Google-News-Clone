@@ -9,12 +9,13 @@ h1 {
   color: rgb(110, 168, 24);
 }
 
-img {
+/* img {
   width: 15em;
   height: 15em;
-}
-
-.hello{
-display: flex;
-justify-content-center;
+} */
+.footer {
+  height: 4rem;
+  color: blue;
+  display: flex;
+  justify-content: center;
 }
