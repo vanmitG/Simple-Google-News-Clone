@@ -2,32 +2,38 @@ console.log("script.js");
 
 let url =
   "https://newsapi.org/v2/top-headlines?country=us&apiKey=3474dd4797ca45dbac85a0631f18ac1d";
+let newsArray = [];
 async function getNews() {
   const response = await fetch(url);
   const jsonDataObject = await response.json();
   // console.log(`jsonDataObject: ${jsonDataObject}`);
-  console.log(
-    "line-9-jsonDataObject.aritiles[0]:",
-    jsonDataObject.articles.length
-  );
-  document.getElementById("articlesLoaded").innerHTML = ` ${
-    jsonDataObject.articles.length
-  }`;
-  const newsHTML = jsonDataObject.articles.map(el => {
-    return renderArticle(el);
-  });
-  document.getElementById("newsContent").innerHTML = newsHTML.join("");
-  // const newsHTML = jsonDataObject.article.tite;
+  // console.log(
+  //   "line-9-jsonDataObject.aritiles[0]:",
+  //   jsonDataObject.articles.length
+  // );
+
+  // console.log("line-15-add more news", jsonDataObject.articles);
+  newsArray.push(...jsonDataObject.articles);
+  console.log("line-17-add newsArray", newsArray);
+  renderNews(newsArray);
 }
 
-function renderArticle(el) {
+function renderNews(newsArray) {
+  document.getElementById("articlesLoaded").innerHTML = ` ${newsArray.length}`;
+  const newsHTML = newsArray.map(el => {
+    return createHtmlTemplate(el);
+  });
+  document.getElementById("newsContent").innerHTML = newsHTML.join("");
+}
+
+function createHtmlTemplate(el) {
   // console.log(`line 16 render Ariticle`);
-  console.log("Line-19-el.Title.", el.title);
-  console.log("Line-20-el.Description.", el.description);
-  console.log("Line-21-el.Title.", el.source.name);
-  console.log("Line-22-el.Description.", el.urlToImage);
-  console.log("Line-23-el.Title.", el.url);
-  console.log("Line-24-el.Description.", el.title);
+  // console.log("Line-19-el.Title.", el.title);
+  // console.log("Line-20-el.Description.", el.description);
+  // console.log("Line-21-el.Title.", el.source.name);
+  // console.log("Line-22-el.Description.", el.urlToImage);
+  // console.log("Line-23-el.Title.", el.url);
+  // console.log("Line-24-el.Description.", el.title);
   return `        
   <div class="row d-flex mt-2 justify-content-center">
       <div class="card" style="width: 35rem;">
@@ -52,6 +58,4 @@ function renderArticle(el) {
   //   console.log("line - 23: element", el.description);
   // });
 }
-
 getNews();
-// renderArticle();
