@@ -18,7 +18,7 @@
     class="navbar fixed-top navbar-expand-lg navbar-light"
     style="background-color: #CCCCCC"
   >
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Simple Google News</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -86,13 +86,19 @@
       >
         <span class="d-inline-flex"
           ><p id="articlesLoaded"></p>
-          <p>Articles Loaded</p></span
+          <p class="ml-2">Articles Loaded</p></span
         >
       </div>
       <div id="newsContent"></div>
     </div>
     <div class="row footer">
-      <button class="btn - btn-outline-info">Load More...</button>
+      <button
+        id="getMoreNews"
+        class="btn - btn-outline-info"
+        onclick="getNews()"
+      >
+        Load More...
+      </button>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
     <script src="script.js"></script>
