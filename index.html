@@ -89,14 +89,19 @@
           <p class="ml-2">Articles Loaded</p></span
         >
       </div>
+      <div
+        class="row d-flex p-2 justify-content-center align-items-center"
+        style="color: #AAA86D;font-size: 1.5rem"
+      >
+        <span class="flex"
+          ><p class="mr-2">News Sources</p>
+          <div id="newsSource" class="d-flex flex-wrap"></div>
+        </span>
+      </div>
       <div id="newsContent"></div>
     </div>
     <div class="row footer">
-      <button
-        id="getMoreNews"
-        class="btn - btn-outline-info"
-        onclick="getNews()"
-      >
+      <button id="getMoreNews" class="btn btn-light" onclick="getNews()">
         Load More...
       </button>
     </div>

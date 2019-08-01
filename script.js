@@ -3,6 +3,7 @@ console.log("script.js");
 let url =
   "https://newsapi.org/v2/top-headlines?country=us&apiKey=3474dd4797ca45dbac85a0631f18ac1d";
 let newsArray = [];
+
 async function getNews() {
   const response = await fetch(url);
   const jsonDataObject = await response.json();
@@ -16,6 +17,7 @@ async function getNews() {
   newsArray.push(...jsonDataObject.articles);
   console.log("line-17-add newsArray", newsArray);
   renderNews(newsArray);
+  getNewsSourse(newsArray);
 }
 
 function renderNews(newsArray) {
@@ -24,6 +26,14 @@ function renderNews(newsArray) {
     return createHtmlTemplate(el);
   });
   document.getElementById("newsContent").innerHTML = newsHTML.join("");
+}
+function getNewsSourse(newsArray) {
+  const newsSource = newsArray.map(el => {
+    return `<button class="btn btn-light btm-sm" >${el.source.name}</button>`;
+  });
+  const uniqueSource = new Set(newsSource);
+  console.log("line34-uniqueSource3", uniqueSource);
+  document.getElementById("newsSource").innerHTML = [...uniqueSource].join(" ");
 }
 
 function createHtmlTemplate(el) {
@@ -37,7 +47,9 @@ function createHtmlTemplate(el) {
   return `        
   <div class="row d-flex mt-2 justify-content-center">
       <div class="card" style="width: 35rem;">
-          <img class="card-img-top" src="${el.urlToImage}" alt="Card image cap">
+          <img class="card-img-top" src="${
+            el.urlToImage
+          }" alt="https://picsum.photos/698/465">
           <div class="card-body">
             <h5 class="card-title">${el.title}</h5>
             <span class="d-flex"><p class="card-text">${moment(
@@ -49,7 +61,7 @@ function createHtmlTemplate(el) {
   }</p></span>
             <p class="card-text">${el.description}</p>
            
-            <a href="${el.url}" class="btn btn-info">Read More</a>
+            <a href="${el.url}" class="btn btn-light btn-sm">Read More</a>
           </div>
         </div>
   </div>
