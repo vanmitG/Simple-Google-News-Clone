@@ -42,7 +42,9 @@ function createHtmlTemplate(el) {
             <h5 class="card-title">${el.title}</h5>
             <span class="d-flex"><p class="card-text">${moment(
               el.publishedAt
-            ).format("MMM Do YY")}</p> <p class="card-text ml-3">Source: ${
+            ).format("MMM Do YY")} -- ${moment(el.publishedAt)
+    .startOf("day")
+    .fromNow()}  </p> <p class="card-text ml-3">Source: ${
     el.source.name
   }</p></span>
             <p class="card-text">${el.description}</p>
